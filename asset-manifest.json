@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/RedditKittens/static/css/main.1bb0efd6.css",
+    "main.css": "/RedditKittens/static/css/main.3390a391.css",
     "main.js": "/RedditKittens/static/js/main.9eba5625.js",
     "static/js/787.3a0263cc.chunk.js": "/RedditKittens/static/js/787.3a0263cc.chunk.js",
     "index.html": "/RedditKittens/index.html",
-    "main.1bb0efd6.css.map": "/RedditKittens/static/css/main.1bb0efd6.css.map",
+    "main.3390a391.css.map": "/RedditKittens/static/css/main.3390a391.css.map",
     "main.9eba5625.js.map": "/RedditKittens/static/js/main.9eba5625.js.map",
     "787.3a0263cc.chunk.js.map": "/RedditKittens/static/js/787.3a0263cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1bb0efd6.css",
+    "static/css/main.3390a391.css",
     "static/js/main.9eba5625.js"
   ]
 }
