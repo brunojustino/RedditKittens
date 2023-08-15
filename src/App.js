@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 
 const url = "https://api.reddit.com/r/kitten.json";
-// let headers = new Headers({
-//   "X-Modhash": "j5xn2ubnym3a5491bc9183764ebe11b8fe7d076dd5efa29b86",
-//   "Access-Control-Allow-Origin": "*",
-//   "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-//   "Access-Control-Allow-Headers": " Origin, Content-Type, X-Auth-Token",
-// });
 
 class App extends Component {
   constructor(props) {
@@ -25,21 +19,15 @@ class App extends Component {
   }
 
   getData() {
-    return fetch(url, {
-      mode: "cors",
-    })
+    return fetch("https://api.thecatapi.com/v1/images/search?limit=10")
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
-          result.data.children.forEach((d) => {
-            const regex = /(https?:\/\/.*\.(?:png|jpg))/i;
-            if (regex.test(d.data.url)) {
-              this.setState({
-                items: [...this.state.items, d.data.url],
-                isLoaded: true,
-              });
-            }
+          result.forEach((r) => {
+            this.setState({
+              items: [...this.state.items, r.url],
+              isLoaded: true,
+            });
           });
         },
         (error) => {
@@ -50,6 +38,30 @@ class App extends Component {
         }
       );
   }
+
+  // getData() {
+  //   return fetch(url)
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         result.data.children.forEach((d) => {
+  //           const regex = /(https?:\/\/.*\.(?:png|jpg))/i;
+  //           if (regex.test(d.data.url)) {
+  //             this.setState({
+  //               items: [...this.state.items, d.data.url],
+  //               isLoaded: true,
+  //             });
+  //           }
+  //         });
+  //       },
+  //       (error) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           error,
+  //         });
+  //       }
+  //     );
+  // }
 
   render() {
     const imgStyle = {
@@ -66,8 +78,7 @@ class App extends Component {
       return (
         <>
           <div className="header">
-            <h1> Reddit Kittens</h1>
-            <p>Top /r/Kitten from Reddit</p>
+            <h1> Daily dose of cute Kittens</h1>
           </div>
           <div className="gallery">
             <ul>
